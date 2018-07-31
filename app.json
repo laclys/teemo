@@ -3,9 +3,10 @@
     "pages/classic/classic"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Teemo",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundTextStyle": "light"
   }
 }
