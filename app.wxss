@@ -1,0 +1,10 @@
+/*
+ * @Author: Lac 
+ * @Date: 2018-08-01 23:53:50 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-01 23:56:12
+ */
+page {
+  font-family: "PingFangSC-Thin";
+  font-size: 32rpx;
+}
