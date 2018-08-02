@@ -1,0 +1,25 @@
+/*
+ * @Author: Lac 
+ * @Date: 2018-08-01 23:52:43 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-02 00:06:23
+ */
+.container {
+  display: inline-flex;
+  flex-direction: row;
+  padding: 10rpx;
+}
+
+.container image {
+  width: 32rpx;
+  height: 28rpx;
+}
+
+.container text {
+  position: relative;
+  left: 6rpx;
+  bottom: 10rpx;
+  line-height: 24rpx;
+  font-size: 24rpx;
+  color: #bbb;
+}

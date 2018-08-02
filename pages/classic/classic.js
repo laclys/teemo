@@ -1,11 +1,15 @@
-// pages/classic/classic.js
+/*
+ * @Author: Lac 
+ * @Date: 2018-08-02 22:03:50 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-02 22:19:20
+ */
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
   },
 
   /**
