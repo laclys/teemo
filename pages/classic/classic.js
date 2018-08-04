@@ -2,21 +2,30 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:03:50 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-02 22:19:20
+ * @Last Modified time: 2018-08-05 01:24:21
  */
+import { ClassicModel } from '../../models/classic.js'
+
+let classic = new ClassicModel()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    classicData: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    classic.getLatest(res => {
+      this.setData({
+        classicData: res
+      })
+    })
   },
 
   /**
