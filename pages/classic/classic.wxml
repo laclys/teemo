@@ -1,2 +1,6 @@
-<like-comp like="{{ classicData.like_status }}" count="{{ classicData.fav_nums }}" />
+<like-comp
+  like="{{ classicData.like_status }}"
+  count="{{ classicData.fav_nums }}"
+  bind:like="handleClick"
+/>
 <movie-comp img="{{ classicData.image }}" content="{{ classicData.content }}" />

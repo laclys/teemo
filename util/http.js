@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-05 00:37:38 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-05 00:58:40
+ * @Last Modified time: 2018-08-05 14:35:50
  */
 import { config } from '../config.js'
 
@@ -34,7 +34,7 @@ export class HTTP {
       success: (res) => {
         let code = res.statusCode.toString()
         if (code.startsWith('2')) {
-          params.success(res.data)
+          params.success && params.success(res.data)
         } else {
           let error_code = res.data.error_code
           this._show_error(error_code)
