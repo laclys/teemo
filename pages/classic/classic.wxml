@@ -1,6 +1,10 @@
-<like-comp
-  like="{{ classicData.like_status }}"
-  count="{{ classicData.fav_nums }}"
-  bind:like="handleClick"
-/>
+<view class="header" >
+  <epsoide-comp class="epsoide"  index="{{ classicData.index }}" />
+  <like-comp
+    class="like"
+    like="{{ classicData.like_status }}"
+    count="{{ classicData.fav_nums }}"
+    bind:like="handleClick"
+  />
+</view>
 <movie-comp img="{{ classicData.image }}" content="{{ classicData.content }}" />
