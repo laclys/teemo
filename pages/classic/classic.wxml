@@ -1,10 +1,20 @@
-<view class="header" >
-  <epsoide-comp class="epsoide"  index="{{ classicData.index }}" />
-  <like-comp
-    class="like"
-    like="{{ classicData.like_status }}"
-    count="{{ classicData.fav_nums }}"
-    bind:like="handleClick"
+<view class="container" >
+  <view class="header" >
+    <epsoide-comp class="epsoide"  index="{{ classicData.index }}" />
+    <like-comp
+      class="like"
+      like="{{ classicData.like_status }}"
+      count="{{ classicData.fav_nums }}"
+      bind:like="handleClick"
+    />
+  </view>
+  <movie-comp img="{{ classicData.image }}" content="{{ classicData.content }}" />
+  <navi-comp
+    class="navi"
+    first="{{ first }}"
+    latest="{{ latest }}"
+    title="{{ classicData.title }}"
+    bind: left="handleNext"
+    bind: right="handlePrev"
   />
 </view>
-<movie-comp img="{{ classicData.image }}" content="{{ classicData.content }}" />

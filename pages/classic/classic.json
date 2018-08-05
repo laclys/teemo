@@ -2,6 +2,7 @@
   "usingComponents": {
     "like-comp": "/components/like/index",
     "movie-comp": "/components/classic/movie/index",
-    "epsoide-comp": "/components/epsoide/index"
+    "epsoide-comp": "/components/epsoide/index",
+    "navi-comp": "/components/nav/index"
   }
 }
