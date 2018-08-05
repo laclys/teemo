@@ -1,1 +1,2 @@
 <like-comp like="{{ classicData.like_status }}" count="{{ classicData.fav_nums }}" />
+<movie-comp img="{{ classicData.image }}" content="{{ classicData.content }}" />
