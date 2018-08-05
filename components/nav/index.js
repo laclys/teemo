@@ -1,8 +1,8 @@
 /*
  * @Author: Lac 
  * @Date: 2018-08-05 23:10:09 
- * @Last Modified by:   Lac 
- * @Last Modified time: 2018-08-05 23:10:09 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-06 00:07:18
  */
 // components/nav/index.js
 Component({
@@ -29,6 +29,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleLeftClick: function(ev) {
+      if (!this.properties.latest) this.triggerEvent('left', {})
+    },
+    handleRightClick: function(ev) {
+      if (!this.properties.first) this.triggerEvent('right', {})
+    }
   }
 })
