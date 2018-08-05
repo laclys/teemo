@@ -1,0 +1,25 @@
+/*
+ * @Author: Lac 
+ * @Date: 2018-08-05 23:13:47 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-05 23:18:13
+ */
+.container {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 600rpx;
+  height: 80rpx;
+  background: #f7f7f7;
+  border-radius: 2px;
+}
+
+.icon {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.title {
+  font-size: 28rpx;
+}
