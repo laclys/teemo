@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:19:42 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-02 23:02:14
+ * @Last Modified time: 2018-08-05 14:16:55
  */
 
 Component({
@@ -39,6 +39,10 @@ Component({
       this.setData({
         count: count,
         like: !like
+      })
+      let behavior = this.properties.like ? 'like' : 'cancel'
+      this.triggerEvent('like', {
+        behavior: behavior
       })
     }
   }

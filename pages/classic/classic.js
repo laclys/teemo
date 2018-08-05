@@ -2,21 +2,41 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:03:50 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-02 22:19:20
+ * @Last Modified time: 2018-08-05 14:29:33
  */
+import { ClassicModel } from '../../models/classic.js'
+import { LikeModel } from '../../models/like.js'
+
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    classicData: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function () {
+    classicModel.getLatest(res => {
+      console.log(res)
+      this.setData({
+        classicData: res
+      })
+    })
+  },
+
+  handleClick: function(ev) {
+    console.log(ev)
+    let behavior = ev.detail.behavior
+    let id = this.data.classicData.id
+    let type = this.data.classicData.type
+    likeModel.like(behavior, id, type)
   },
 
   /**

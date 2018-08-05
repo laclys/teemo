@@ -1,0 +1,19 @@
+<wxs module="handleIndex" >
+  var getIndex = function(index) {
+    var val = index < 10 ? '0' + index : index
+    return val
+  }
+  module.exports.getIndex = getIndex;
+</wxs>
+
+<view class="container" >
+  <view class="index-container">
+    <text class="plain" >No.</text>
+    <text class="index" >{{ handleIndex.getIndex(index) }}</text>
+    <view class="line"></view>
+  </view>
+  <view class="date-container" >
+      <text class="month" >{{ month }}</text>
+      <text class="year" >{{ year }}</text>
+  </view>
+</view>

@@ -2,12 +2,13 @@
  * @Author: Lac 
  * @Date: 2018-08-01 23:52:43 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-02 00:06:23
+ * @Last Modified time: 2018-08-05 14:02:37
  */
 .container {
   display: inline-flex;
   flex-direction: row;
   padding: 10rpx;
+  width: 90rpx;
 }
 
 .container image {
