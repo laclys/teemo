@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-05 01:24:03 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-07 22:48:13
+ * @Last Modified time: 2018-08-07 22:59:16
  */
 import { HTTP } from '../util/http.js'
 
@@ -12,6 +12,7 @@ export class ClassicModel extends HTTP {
       url: 'classic/latest',
       success: (res) => {
         cb(res)
+        this._setLatestIndex(res.index)
       }
     })
   }
@@ -21,13 +22,8 @@ export class ClassicModel extends HTTP {
       url: `classic/${ index }/${ nextOrPrev }`,
       success: res => {
         cb(res)
-        this._setLatestIndex(res.index)
       }
     })
-  }
-
-  getNext() {
-
   }
 
   /**
@@ -44,6 +40,8 @@ export class ClassicModel extends HTTP {
    */
   isLatest(index) {
     let lastIndex = this._getLatestIndex()
+    console.log(lastIndex)
+    console.log(lastIndex, index)
     return lastIndex === index ? true : false
   }
 
