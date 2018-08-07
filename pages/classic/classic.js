@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:03:50 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-06 00:06:14
+ * @Last Modified time: 2018-08-07 22:50:33
  */
 import { ClassicModel } from '../../models/classic.js'
 import { LikeModel } from '../../models/like.js'
@@ -39,7 +39,6 @@ Page({
   },
 
   handleClick: function(ev) {
-    console.log(ev)
     let behavior = ev.detail.behavior
     let id = this.data.classicData.id
     let type = this.data.classicData.type
@@ -47,13 +46,24 @@ Page({
   },
 
   handleNext: function(ev) {
-
+    this._updateClassicDate('next')
   },
 
   handlePrev: function(ev) {
-
+    this._updateClassicDate('previous')
   },
   
+  _updateClassicDate: function(nextOrPrev) {
+    let index = this.data.classicData.index
+    classicModel.getClassic(index, nextOrPrev, res => {
+      this.setData({
+        classicData: res,
+        first: classicModel.isFirst(res.index),
+        latest: classicModel.isLatest(res.index)
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

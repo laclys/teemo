@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-05 01:24:03 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-07 22:25:34
+ * @Last Modified time: 2018-08-07 22:48:13
  */
 import { HTTP } from '../util/http.js'
 
@@ -16,14 +16,18 @@ export class ClassicModel extends HTTP {
     })
   }
 
-  getPrev(index, cb) {
+  getClassic(index, nextOrPrev, cb) {
     this.request({
-      url: `classic/${ index }/previous`,
+      url: `classic/${ index }/${ nextOrPrev }`,
       success: res => {
         cb(res)
         this._setLatestIndex(res.index)
       }
     })
+  }
+
+  getNext() {
+
   }
 
   /**

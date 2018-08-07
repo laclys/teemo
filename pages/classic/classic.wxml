@@ -14,7 +14,7 @@
     first="{{ first }}"
     latest="{{ latest }}"
     title="{{ classicData.title }}"
-    bind: left="handleNext"
-    bind: right="handlePrev"
+    bind:left="handleNext"
+    bind:right="handlePrev"
   />
 </view>
