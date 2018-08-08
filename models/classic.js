@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-05 01:24:03 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-07 22:59:16
+ * @Last Modified time: 2018-08-08 23:06:47
  */
 import { HTTP } from '../util/http.js'
 
@@ -11,19 +11,28 @@ export class ClassicModel extends HTTP {
     this.request({
       url: 'classic/latest',
       success: (res) => {
-        cb(res)
         this._setLatestIndex(res.index)
+        wx.setStorageSync(this._getKey(res.index), res)
+        cb(res)
       }
     })
   }
 
   getClassic(index, nextOrPrev, cb) {
-    this.request({
-      url: `classic/${ index }/${ nextOrPrev }`,
-      success: res => {
-        cb(res)
-      }
-    })
+
+    let key = nextOrPrev === 'next' ? this._getKey(index + 1) : this._getKey(index - 1)
+    let classic = wx.getStorageSync(key)
+    if (!classic) {
+      this.request({
+        url: `classic/${ index }/${ nextOrPrev }`,
+        success: res => {
+          wx.setStorageSync(this._getKey(res.index), res)
+          cb(res)
+        }
+      })
+    } else {
+      cb(classic)  
+    }
   }
 
   /**
@@ -40,8 +49,6 @@ export class ClassicModel extends HTTP {
    */
   isLatest(index) {
     let lastIndex = this._getLatestIndex()
-    console.log(lastIndex)
-    console.log(lastIndex, index)
     return lastIndex === index ? true : false
   }
 
@@ -59,6 +66,11 @@ export class ClassicModel extends HTTP {
     } catch (e) {
       console.log(e)
     }
+  }
+
+  _getKey(index) {
+    let key = 'classic-' + index
+    return key
   }
 
 }
