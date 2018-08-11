@@ -14,7 +14,7 @@
     content="{{ classicData.content }}" 
   />
   <music-comp 
-    hidden="{{ classicData.type!==200 }}"
+    wx:if="{{ classicData.type==200 }}"
     img="{{ classicData.image }}"
     content="{{ classicData.content }}"
     src="{{ classicData.url }}"

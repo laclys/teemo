@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-06 21:40:29 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-12 01:06:03
+ * @Last Modified time: 2018-08-12 02:19:59
  */
 import { classicBeh } from '../beh.js'
 
@@ -16,6 +16,10 @@ Component({
 
   properties: {
     src: String
+  },
+
+  attached: function(ev) {
+    this._recoverStatus()
   },
 
   /**
@@ -40,6 +44,21 @@ Component({
       this.setData({
         playing: !this.data.playing
       })
+    },
+    _recoverStatus: function() {
+      // paused 当前是是否暂停或停止状态，true 表示暂停或停止，false 表示正在播放
+      if (mMgr.paused) {
+        this.setData({
+          playing: false
+        })
+        return
+      }
+      if (mMgr.src === this.properties.src) {
+        this.setData({
+          playing: true
+        })
+      }
     }
   }
+
 })
