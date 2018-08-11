@@ -1,8 +1,8 @@
 /*
  * @Author: Lac 
- * @Date: 2018-08-05 13:55:33 
+ * @Date: 2018-08-06 21:46:41 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-11 12:26:53
+ * @Last Modified time: 2018-08-06 21:53:09
  */
 import { classicBeh } from '../beh.js'
 Component({

@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:03:50 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-06 00:06:14
+ * @Last Modified time: 2018-08-11 12:13:22
  */
 import { ClassicModel } from '../../models/classic.js'
 import { LikeModel } from '../../models/like.js'
@@ -18,7 +18,9 @@ Page({
   data: {
     classicData: null,
     first: false,
-    latest: true
+    latest: true,
+    likeCount: 0,
+    likeStatus: false
   },
 
   /**
@@ -28,7 +30,9 @@ Page({
     classicModel.getLatest(res => {
       console.log(res)
       this.setData({
-        classicData: res
+        classicData: res,
+        likeCount: res.fav_nums,
+        like_status: res.like_status
       })
       if (res.index === 1) {
         this.setData({
@@ -39,7 +43,6 @@ Page({
   },
 
   handleClick: function(ev) {
-    console.log(ev)
     let behavior = ev.detail.behavior
     let id = this.data.classicData.id
     let type = this.data.classicData.type
@@ -47,13 +50,34 @@ Page({
   },
 
   handleNext: function(ev) {
-
+    this._updateClassicDate('next')
   },
 
   handlePrev: function(ev) {
-
+    this._updateClassicDate('previous')
   },
   
+  _updateClassicDate: function(nextOrPrev) {
+    let index = this.data.classicData.index
+    classicModel.getClassic(index, nextOrPrev, res => {
+      this._getLikeStatus(res.id, res.type)
+      this.setData({
+        classicData: res,
+        first: classicModel.isFirst(res.index),
+        latest: classicModel.isLatest(res.index)
+      })
+    })
+  },
+
+  _getLikeStatus: function(artID, type) {
+    likeModel.getClassicLikeStatus(artID, type, (res) => {
+      this.setData({
+        likeStatus: res.like_status,
+        likeCount: res.fav_nums
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
