@@ -3,12 +3,14 @@
     <epsoide-comp class="epsoide"  index="{{ classicData.index }}" />
     <like-comp
       class="like"
-      like="{{ classicData.like_status }}"
-      count="{{ classicData.fav_nums }}"
+      like="{{ likeStatus }}"
+      count="{{ likeCount }}"
       bind:like="handleClick"
     />
   </view>
-  <movie-comp img="{{ classicData.image }}" content="{{ classicData.content }}" />
+  <movie-comp hidden="{{ classicData.type!==100 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" />
+  <music-comp hidden="{{ classicData.type!==200 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" />
+  <essay-comp hidden="{{ classicData.type!==300 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" />
   <navi-comp
     class="navi"
     first="{{ first }}"
