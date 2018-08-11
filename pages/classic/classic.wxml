@@ -1,6 +1,6 @@
 <view class="container" >
   <view class="header" >
-    <epsoide-comp class="epsoide"  index="{{ classicData.index }}" />
+    <epsiode-comp class="episode"  index="{{ classicData.index }}" />
     <like-comp
       class="like"
       like="{{ likeStatus }}"
