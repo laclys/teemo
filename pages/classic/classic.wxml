@@ -8,9 +8,22 @@
       bind:like="handleClick"
     />
   </view>
-  <movie-comp hidden="{{ classicData.type!==100 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" />
-  <music-comp hidden="{{ classicData.type!==200 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" />
-  <essay-comp hidden="{{ classicData.type!==300 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" />
+  <movie-comp 
+    hidden="{{ classicData.type!==100 }}" 
+    img="{{ classicData.image }}" 
+    content="{{ classicData.content }}" 
+  />
+  <music-comp 
+    hidden="{{ classicData.type!==200 }}"
+    img="{{ classicData.image }}"
+    content="{{ classicData.content }}"
+    src="{{ classicData.url }}"
+  />
+  <essay-comp
+    hidden="{{ classicData.type!==300 }}"
+    img="{{ classicData.image }}"
+    content="{{ classicData.content }}"
+  />
   <navi-comp
     class="navi"
     first="{{ first }}"
