@@ -1,1 +1,34 @@
-/* components/classic/music/index.wxss */
+/*
+ * @Author: Lac 
+ * @Date: 2018-08-11 12:55:33 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-11 13:00:02
+ */
+
+ .container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .classic-img {
+   width: 422rpx;
+   height: 422rpx;
+   margin-top: 60rpx;
+   border-radius: 50%;
+ }
+
+ .player-img {
+   position: relative;
+   bottom: 270rpx;
+   width: 120rpx;
+   height: 120rpx;
+ }
+
+ .tag {
+   position: relative;
+   bottom: 160rpx;
+   right: 310rpx;
+   width: 44rpx;
+   height: 128rpx;
+ }
