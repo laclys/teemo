@@ -1,4 +1,13 @@
-// pages/book/book.js
+/*
+ * @Author: Lac 
+ * @Date: 2018-08-12 22:24:44 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-12 22:34:15
+ */
+import { BookModel } from '../../models/book.js'
+
+let bookModel = new BookModel()
+
 Page({
 
   /**
@@ -12,7 +21,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const hotlist = bookModel.getHotList()
+    hotlist.then(res => {
+      console.log(res)
+    })
   },
 
   /**
