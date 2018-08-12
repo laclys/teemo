@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:19:42 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-05 14:16:55
+ * @Last Modified time: 2018-08-12 13:44:03
  */
 
 Component({
@@ -31,19 +31,17 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleTap: function(e) {
+    handleTap: function() {
       let like = this.properties.like
       let count = this.properties.count
 
       count = like ? count - 1 : count + 1
       this.setData({
-        count: count,
+        count,
         like: !like
       })
       let behavior = this.properties.like ? 'like' : 'cancel'
-      this.triggerEvent('like', {
-        behavior: behavior
-      })
+      this.triggerEvent('like', { behavior })
     }
   }
 })

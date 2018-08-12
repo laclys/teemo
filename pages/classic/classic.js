@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:03:50 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-11 12:13:22
+ * @Last Modified time: 2018-08-12 13:46:16
  */
 import { ClassicModel } from '../../models/classic.js'
 import { LikeModel } from '../../models/like.js'
@@ -58,7 +58,7 @@ Page({
   },
   
   _updateClassicDate: function(nextOrPrev) {
-    let index = this.data.classicData.index
+    const index = this.data.classicData.index
     classicModel.getClassic(index, nextOrPrev, res => {
       this._getLikeStatus(res.id, res.type)
       this.setData({
