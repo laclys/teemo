@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-11 12:55:33 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-11 13:00:02
+ * @Last Modified time: 2018-08-12 12:56:31
  */
 
  .container {
@@ -32,3 +32,20 @@
    width: 44rpx;
    height: 128rpx;
  }
+
+ .rotation {
+  animation: rotation 12s linear infinite;
+  -moz-animation: rotation 12s linear infinite;
+  -webkit-animation: rotation 12s linear infinite;
+  -o-animation: rotation 12s linear infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
