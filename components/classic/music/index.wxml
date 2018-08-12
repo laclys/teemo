@@ -1,5 +1,8 @@
 <view class="container" hidden="{{ hidden }}" >
-  <image class="classic-img" src="{{ img }}"  />
+  <image
+    class="classic-img {{ playing ? 'rotation' : '' }}"
+    src="{{ img }}"
+  />
   <image 
     class="player-img"
     bind:tap="handlePlay"
