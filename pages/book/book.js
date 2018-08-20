@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-12 22:24:44 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-12 22:34:15
+ * @Last Modified time: 2018-08-20 23:47:03
  */
 import { BookModel } from '../../models/book.js'
 
@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    books: []
   },
 
   /**
@@ -24,6 +24,9 @@ Page({
     const hotlist = bookModel.getHotList()
     hotlist.then(res => {
       console.log(res)
+      this.setData({
+        books: res
+      })
     })
   },
 

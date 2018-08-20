@@ -1,0 +1,64 @@
+/*
+ * @Author: Lac 
+ * @Date: 2018-08-20 23:49:03 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-08-21 00:01:48
+ */
+
+ .container{
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+  margin-top:30rpx;
+  width:240rpx;
+  height:360rpx;
+  box-shadow:2px 2px 3px #e3e3e3;
+}
+
+.container image {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  padding:5rpx 10rpx 8rpx 15rpx;  
+  width: 100%;
+  background: white;
+  font-size: 24rpx;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  box-sizing: border-box;
+}
+
+.title{
+  overflow: hidden;
+  margin-top:10rpx;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.author{
+  margin-top: -5rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  font-size:20rpx;
+  color:#999999;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+
+.foot{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size:20rpx;
+}
+
+.footer{
+  color:#666666;
+}
