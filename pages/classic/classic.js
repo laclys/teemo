@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:03:50 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-12 13:46:16
+ * @Last Modified time: 2018-08-24 15:19:05
  */
 import { ClassicModel } from '../../models/classic.js'
 import { LikeModel } from '../../models/like.js'
@@ -36,7 +36,7 @@ Page({
       })
       if (res.index === 1) {
         this.setData({
-          latest: false
+          first: false
         })
       }
     })
