@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-11 12:55:33 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-12 12:56:31
+ * @Last Modified time: 2018-08-26 00:47:51
  */
 
  .container {
@@ -12,9 +12,9 @@
  }
 
  .classic-img {
+   margin-top: 60rpx;
    width: 422rpx;
    height: 422rpx;
-   margin-top: 60rpx;
    border-radius: 50%;
  }
 
