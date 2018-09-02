@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-09-02 16:20:00 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 22:07:58
+ * @Last Modified time: 2018-09-02 22:41:56
  */
 // components/tag/index.js
 Component({
@@ -12,6 +12,8 @@ Component({
   options: {
     multipleSlots: true
   },
+  
+  externalClasses: ['tag-class'],
   
   properties: {
     text: String

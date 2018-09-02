@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-09-02 15:12:15 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 22:25:04
+ * @Last Modified time: 2018-09-02 22:50:24
  */
 .container {
   width: 100%;
@@ -70,10 +70,21 @@
   color: #aaa;
 }
 
-.comment-container > tag-comp:nth-child(1) > view {
+/*
+* hack
+**/
+/* .comment-container > tag-comp:nth-child(1) > view {
   background: #fffbdd;
 }
 
 .comment-container > tag-comp:nth-child(2) > view {
   background: #eefbff;
+} */
+
+.ex-tag1 {
+  background: #fffbdd !important;
+}
+
+.ex-tag2 {
+  background: #eefbff !important;
 }
