@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-09-02 15:12:07 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 15:37:03
+ * @Last Modified time: 2018-09-02 16:27:20
  */
 
 import { BookModel } from '../../models/book'
@@ -40,7 +40,7 @@ Page({
     comments.then(res => {
       console.log(res)
       this.setData({
-        comments: res
+        comments: res.comments
       })
     })
 

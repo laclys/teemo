@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "tag-comp": "/components/tag/index"
+  }
+}
