@@ -2,8 +2,12 @@
  * @Author: Lac 
  * @Date: 2018-09-02 15:12:07 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 15:18:25
+ * @Last Modified time: 2018-09-02 15:37:03
  */
+
+import { BookModel } from '../../models/book'
+
+const bookModel = new BookModel()
 
 Page({
 
@@ -11,7 +15,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    comments: [],
+    book: null,
+    likeStatus: false,
+    likeCount: 0
   },
 
   /**
@@ -19,7 +26,31 @@ Page({
    */
   onLoad: function (options) {
     const bid = options.bid
-    console.log(bid)
+    const detail = bookModel.getDetail(bid)
+    const comments = bookModel.getComments(bid)
+    const likeStatus = bookModel.getLikeStatus(bid)
+
+    detail.then(res => {
+      console.log(res)
+      this.setData({
+        book: res
+      })
+    })
+
+    comments.then(res => {
+      console.log(res)
+      this.setData({
+        comments: res
+      })
+    })
+
+    likeStatus.then(res => {
+      console.log(res)
+      this.setData({
+        likeStatus: res.like_status,
+        likeCount: res.fav_nums
+      })
+    })
   },
 
   /**
