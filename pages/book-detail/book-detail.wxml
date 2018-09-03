@@ -4,6 +4,7 @@
     <text class="title" >{{ book.title }}</text>
     <text class="author" >{{ book.author }}</text>
   </view>
+
   <view class="sub-container" >
     <text class="headline" >Tag</text>
     <view class="comment-container" >
@@ -16,5 +17,10 @@
         </tag-comp>
       </block>
     </view>
+  </view>
+
+  <view class="sub-container" >
+    <text class="headline" >Content</text>
+    <text class="content" >{{ book.summary }}</text>
   </view>
 </view>
