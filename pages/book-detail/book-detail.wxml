@@ -1,3 +1,5 @@
+<wxs  src="../../util/filter.wxs" module="helper" />
+
 <view class="container" >
   <view class="head" >
     <image src="{{ book.image }}" />
@@ -21,6 +23,6 @@
 
   <view class="sub-container" >
     <text class="headline" >Content</text>
-    <text class="content" >{{ book.summary }}</text>
+    <text class="content" decode >{{ helper.format(book.summary) }}</text>
   </view>
 </view>
