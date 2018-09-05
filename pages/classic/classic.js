@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-08-02 22:03:50 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-11 12:13:22
+ * @Last Modified time: 2018-09-02 15:18:14
  */
 import { ClassicModel } from '../../models/classic.js'
 import { LikeModel } from '../../models/like.js'
@@ -28,7 +28,6 @@ Page({
    */
   onLoad: function () {
     classicModel.getLatest(res => {
-      console.log(res)
       this.setData({
         classicData: res,
         likeCount: res.fav_nums,
@@ -36,7 +35,7 @@ Page({
       })
       if (res.index === 1) {
         this.setData({
-          latest: false
+          first: false
         })
       }
     })
@@ -58,7 +57,7 @@ Page({
   },
   
   _updateClassicDate: function(nextOrPrev) {
-    let index = this.data.classicData.index
+    const index = this.data.classicData.index
     classicModel.getClassic(index, nextOrPrev, res => {
       this._getLikeStatus(res.id, res.type)
       this.setData({

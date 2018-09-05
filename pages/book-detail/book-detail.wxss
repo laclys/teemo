@@ -1,0 +1,95 @@
+/*
+ * @Author: Lac 
+ * @Date: 2018-09-02 15:12:15 
+ * @Last Modified by: Lac
+ * @Last Modified time: 2018-09-03 23:18:34
+ */
+.container {
+  width: 100%;
+  background: #f5f5f5;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #fff;
+}
+
+.head image {
+  width: 200rpx;
+  height: 300rpx;
+  box-shadow: 2px 2px 3px #e3e3e3;
+}
+
+.title {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+.author {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30rpx;
+  padding: 30rpx;
+  width: 690rpx;
+  background: #fff;
+}
+
+.headline {
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.comment-container tag-comp {
+  margin-right: 15rpx;
+  margin-bottom: 10rpx;
+}
+
+.content {
+  text-indent: 58rpx;
+  font-weight: 500;
+}
+
+.num {
+  margin-left: 10rpx;
+  font-size: 22rpx;
+  color: #aaa;
+}
+
+/*
+* hack
+**/
+/* .comment-container > tag-comp:nth-child(1) > view {
+  background: #fffbdd;
+}
+
+.comment-container > tag-comp:nth-child(2) > view {
+  background: #eefbff;
+} */
+
+.ex-tag1 {
+  background: #fffbdd !important;
+}
+
+.ex-tag2 {
+  background: #eefbff !important;
+}

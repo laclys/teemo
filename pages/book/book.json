@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "book-comp": "/components/book/index"
+  }
+}
