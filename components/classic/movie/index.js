@@ -1,6 +1,6 @@
 /*
- * @Author: Lac 
- * @Date: 2018-08-05 13:55:33 
+ * @Author: Lac
+ * @Date: 2018-08-05 13:55:33
  * @Last Modified by: Lac
  * @Last Modified time: 2018-08-11 12:26:53
  */
@@ -10,7 +10,7 @@ Component({
    * 组件的属性列表
    */
   behaviors: [ classicBeh ],
-  
+
   properties: {
   },
 

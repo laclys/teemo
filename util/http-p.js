@@ -1,6 +1,6 @@
 /*
- * @Author: Lac 
- * @Date: 2018-08-12 22:06:29 
+ * @Author: Lac
+ * @Date: 2018-08-12 22:06:29
  * @Last Modified by: Lac
  * @Last Modified time: 2018-08-12 22:34:02
  */
@@ -18,13 +18,13 @@ const tips = {
 }
 
 export class HTTP {
-  request({ url, data={}, method="GET" }) {
+  request ({ url, data = {}, method = 'GET' }) {
     return new Promise((resolve, reject) => {
       this._request(url, resolve, reject, data, method)
     })
   }
 
-  _request(url, resolve, reject, data={}, method="GET") {
+  _request (url, resolve, reject, data = {}, method = 'GET') {
     wx.request({
       url: config.api_base_url + url,
       method,
@@ -50,7 +50,7 @@ export class HTTP {
     })
   }
 
-  _show_error(error_code) {
+  _show_error (error_code) {
     if (!error_code || Object.keys(tips).indexOf(error_code.toString() === -1)) {
       error_code = 1
     }
@@ -60,5 +60,4 @@ export class HTTP {
       duration: 2000
     })
   }
-
 }

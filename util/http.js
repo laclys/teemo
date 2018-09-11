@@ -1,6 +1,6 @@
 /*
- * @Author: Lac 
- * @Date: 2018-08-05 00:37:38 
+ * @Author: Lac
+ * @Date: 2018-08-05 00:37:38
  * @Last Modified by: Lac
  * @Last Modified time: 2018-08-05 14:35:50
  */
@@ -18,7 +18,7 @@ const tips = {
 }
 
 export class HTTP {
-  request(params) {
+  request (params) {
     // url, data, method
     if (!params.method) {
       params.method = 'GET'
@@ -46,7 +46,7 @@ export class HTTP {
     })
   }
 
-  _show_error(error_code) {
+  _show_error (error_code) {
     if (!error_code || Object.keys(tips).indexOf(error_code.toString() === -1)) {
       error_code = 1
     }
@@ -56,5 +56,4 @@ export class HTTP {
       duration: 2000
     })
   }
-
 }

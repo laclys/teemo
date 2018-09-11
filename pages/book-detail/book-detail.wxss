@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-09-02 15:12:15 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-03 23:18:34
+ * @Last Modified time: 2018-09-11 22:59:08
  */
 .container {
   width: 100%;
@@ -92,4 +92,24 @@
 
 .ex-tag2 {
   background: #eefbff !important;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 100rpx;
+  width: 100%;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  margin-right: 30rpx;
+  color: #999;
 }
