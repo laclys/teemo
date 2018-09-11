@@ -1,6 +1,6 @@
 /*
- * @Author: Lac 
- * @Date: 2018-08-06 21:40:29 
+ * @Author: Lac
+ * @Date: 2018-08-06 21:40:29
  * @Last Modified by: Lac
  * @Last Modified time: 2018-08-12 02:34:52
  */
@@ -18,7 +18,7 @@ Component({
     src: String
   },
 
-  attached: function(ev) {
+  attached: function (ev) {
     this._recoverStatus()
     this._monitorSwitch()
   },
@@ -36,7 +36,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handlePlay: function(ev) {
+    handlePlay: function (ev) {
       if (!this.data.playing) {
         mMgr.src = this.properties.src
       } else {
@@ -50,7 +50,7 @@ Component({
     /**
      * 处理组件加载音乐播放状态
      */
-    _recoverStatus: function() {
+    _recoverStatus: function () {
       // paused 当前是是否暂停或停止状态，true 表示暂停或停止，false 表示正在播放
       if (mMgr.paused) {
         this.setData({
@@ -67,7 +67,7 @@ Component({
     /**
      * 监听wx背景music播放事件，并与组件播放状态关联
      */
-    _monitorSwitch:function() {
+    _monitorSwitch: function () {
       // 背景音频播放事件
       mMgr.onPlay(() => {
         this._recoverStatus()
@@ -85,6 +85,6 @@ Component({
         this._recoverStatus()
       })
     }
-  },
+  }
 
 })

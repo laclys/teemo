@@ -1,6 +1,6 @@
 /*
- * @Author: Lac 
- * @Date: 2018-08-02 22:19:42 
+ * @Author: Lac
+ * @Date: 2018-08-02 22:19:42
  * @Last Modified by: Lac
  * @Last Modified time: 2018-08-12 13:44:03
  */
@@ -31,7 +31,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleTap: function() {
+    handleTap: function () {
       let like = this.properties.like
       let count = this.properties.count
 
