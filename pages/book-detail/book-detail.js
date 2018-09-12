@@ -2,12 +2,14 @@
  * @Author: Lac
  * @Date: 2018-09-02 15:12:07
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 16:27:20
+ * @Last Modified time: 2018-09-12 23:04:14
  */
 
 import { BookModel } from '../../models/book'
+import { LikeModel } from '../../models/like';
 
 const bookModel = new BookModel()
+const likeModel = new LikeModel()
 
 Page({
 
@@ -51,6 +53,11 @@ Page({
         likeCount: res.fav_nums
       })
     })
+  },
+
+  handleLike: function (ev) {
+    const like_or_cancel = ev.detail.behavior
+    likeModel.like(like_or_cancel, this.data.book.id, 400)
   },
 
   /**
