@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-02 15:12:07
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-12 23:04:14
+ * @Last Modified time: 2018-09-12 23:54:34
  */
 
 import { BookModel } from '../../models/book'
@@ -20,7 +20,8 @@ Page({
     comments: [],
     book: null,
     likeStatus: false,
-    likeCount: 0
+    likeCount: 0,
+    posting: false
   },
 
   /**
@@ -58,6 +59,18 @@ Page({
   handleLike: function (ev) {
     const like_or_cancel = ev.detail.behavior
     likeModel.like(like_or_cancel, this.data.book.id, 400)
+  },
+
+  handleOpenRealComment: function (e) {
+    this.setData({
+      posting: true
+    })
+  },
+
+  handleCancel: function (e) {
+    this.setData({
+      posting: false
+    })
   },
 
   /**

@@ -39,7 +39,11 @@
     </view>
   </view>
 </view>
-<view class="post-container">
+<view 
+  class="post-container"
+  wx:if="{{ !posting }}" 
+  bind:tap="handleOpenRealComment"
+>
   <view class="post-fake">
     <text>write something~</text>
   </view>
@@ -51,4 +55,25 @@
       count="{{ likeCount }}"
     />
   </view>
+</view>
+
+<view class="post-real-container" wx:if="{{ posting }}" >
+  <view class="post-header" >
+    <text>click +1</text>
+    <text
+      class="cancel"
+      bind:tap="handleCancel"
+    >Cancel</text>
+  </view>
+  <view class="comment-container" >
+    <block wx:for="{{ helper.limit(comments, 3) }}" wx:key="content">
+      <tag-comp tag-class="{{ index === 0 ? 'ex-tag1': '' || index === 1 ? 'ex-tag2': ''  }}" text="{{ item.content }}">
+        <text slot="after" class="num">{{ '+' + item.nums }}</text>
+      </tag-comp>
+    </block>
+  </view>
+  <input
+    class="post"
+    placeholder="Up to 12 words"
+  />
 </view>
