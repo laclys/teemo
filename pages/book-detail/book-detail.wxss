@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-09-02 15:12:15 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-11 22:59:08
+ * @Last Modified time: 2018-09-12 22:59:37
  */
 .container {
   width: 100%;
@@ -112,4 +112,43 @@
 .description {
   margin-right: 30rpx;
   color: #999;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 30rpx;
+  height: 100rpx;
+  width: 690rpx;
+  background: #fff;
+  box-shadow: 1px -1px 1px #e3e3e3;
+}
+
+.post-fake {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60rpx;
+  width: 460rpx;
+  border: 1px solid #999;
+  border-radius: 15px;
+  font-size: 22rpx;
+  padding-left: 20rpx;
+}
+
+.like {
+  margin-top: 10rpx;
+  margin-right: 30rpx;
+}
+
+.like-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

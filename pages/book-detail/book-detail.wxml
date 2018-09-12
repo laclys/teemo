@@ -30,12 +30,25 @@
         <text class="description">装帧</text>
       </view>
       <view class="vertical">
-        <text class="">{{book.publisher}}</text>
-        <text class="">{{book.pubdate}}</text>
-        <text class="">{{book.pages}}</text>
-        <text class="">{{book.price}}</text>
-        <text class="">{{book.binding}}</text>
+        <text>{{book.publisher}}</text>
+        <text>{{book.pubdate}}</text>
+        <text>{{book.pages}}</text>
+        <text>{{book.price}}</text>
+        <text>{{book.binding}}</text>
       </view>
     </view>
+  </view>
+</view>
+<view class="post-container">
+  <view class="post-fake">
+    <text>write something~</text>
+  </view>
+  <view class="like-container" >
+    <like-comp
+      bind:like="handleLike"
+      class="like"
+      like="{{ likeStatus }}"
+      count="{{ likeCount }}"
+    />
   </view>
 </view>
