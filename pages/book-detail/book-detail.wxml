@@ -1,41 +1,88 @@
-<wxs src="../../util/filter.wxs" module="helper" />
-<view class="container">
-  <view class="head">
-    <image src="{{ book.image }}" />
-    <text class="title">{{ book.title }}</text>
-    <text class="author">{{ book.author }}</text>
+<wxs src='../../util/filter.wxs' module='helper' />
+<view class='container'>
+  <view class='head'>
+    <image src='{{ book.image }}' />
+    <text class='title'>{{ book.title }}</text>
+    <text class='author'>{{ book.author }}</text>
   </view>
-  <view class="sub-container">
-    <text class="headline">Tag</text>
-    <view class="comment-container">
-      <block wx:for="{{ helper.limit(comments, 15) }}" wx:key="content">
-        <tag-comp tag-class="{{ index === 0 ? 'ex-tag1': '' || index === 1 ? 'ex-tag2': ''  }}" text="{{ item.content }}">
-          <text slot="after" class="num">{{ '+' + item.nums }}</text>
+  <view class='sub-container'>
+    <text class='headline'>Tag</text>
+    <text class='shadow' wx:if='{{ comments == false }}'  >No Comment</text>
+    <view class='comment-container'>
+      <block wx:for='{{ helper.limit(comments, 15) }}' wx:key='content'>
+        <tag-comp tag-class='{{ index === 0 ? "ex-tag1" : " " || index === 1 ? "ex-tag2": " "  }}' text='{{ item.content }}'>
+          <text slot='after' class='num'>{{ '+' + item.nums }}</text>
         </tag-comp>
       </block>
     </view>
   </view>
-  <view class="sub-container">
-    <text class="headline">Content</text>
-    <text class="content" decode>{{ helper.format(book.summary) }}</text>
+  <view class='sub-container'>
+    <text class='headline'>Content</text>
+    <text class='content' decode>{{ helper.format(book.summary) }}</text>
   </view>
-  <view class="sub-container">
-    <text class="headline">Summary</text>
-    <view class="detail-container">
-      <view class="vertical">
-        <text class="description">出版社</text>
-        <text class="description">出版年</text>
-        <text class="description">页数</text>
-        <text class="description">定价</text>
-        <text class="description">装帧</text>
+  <view class='sub-container'>
+    <text class='headline'>Summary</text>
+    <view class='detail-container'>
+      <view class='vertical'>
+        <text class='description'>出版社</text>
+        <text class='description'>出版年</text>
+        <text class='description'>页数</text>
+        <text class='description'>定价</text>
+        <text class='description'>装帧</text>
       </view>
-      <view class="vertical">
-        <text class="">{{book.publisher}}</text>
-        <text class="">{{book.pubdate}}</text>
-        <text class="">{{book.pages}}</text>
-        <text class="">{{book.price}}</text>
-        <text class="">{{book.binding}}</text>
+      <view class='vertical'>
+        <text>{{book.publisher}}</text>
+        <text>{{book.pubdate}}</text>
+        <text>{{book.pages}}</text>
+        <text>{{book.price}}</text>
+        <text>{{book.binding}}</text>
       </view>
     </view>
   </view>
 </view>
+<view 
+  class='post-container'
+  wx:if='{{ !posting }}' 
+  bind:tap='handleOpenRealComment'
+>
+  <view class='post-fake'>
+    <text>write something~</text>
+  </view>
+  <view class='like-container' >
+    <like-comp
+      bind:like='handleLike'
+      class='like'
+      like='{{ likeStatus }}'
+      count='{{ likeCount }}'
+    />
+  </view>
+</view>
+
+<view class='post-real-container' wx:if='{{ posting }}' >
+  <view class='post-header' >
+    <text wx:if='{{ comments===true }}' >click +1</text>
+    <text wx:else >No comment</text>
+    <text
+      class='cancel'
+      bind:tap='handleCancel'
+    >Cancel</text>
+  </view>
+  <view class='comment-container' >
+    <block wx:for='{{ helper.limit(comments, 3) }}' wx:key='content'>
+      <tag-comp
+        bind:tapping='handlePost'
+        tag-class='{{ index === 0 ? "ex-tag1" : " " || index === 1 ? "ex-tag2": " "  }}'
+        text='{{ item.content }}'
+      >
+        <text slot='after' class='num'>{{ '+' + item.nums }}</text>
+      </tag-comp>
+    </block>
+  </view>
+  <input
+    class='post'
+    placeholder='Up to 12 words'
+    bindconfirm='handlePost'
+  />
+</view>
+
+<mask-comp wx:if='{{ posting }}' />

@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-08-12 22:15:50
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 15:39:06
+ * @Last Modified time: 2018-09-19 23:51:24
  */
 import { HTTP } from '../util/http-p.js'
 
@@ -34,6 +34,17 @@ export class BookModel extends HTTP {
   getComments (bid) {
     return this.request({
       url: `/book/${bid}/short_comment`
+    })
+  }
+
+  postComment (bid, comment) {
+    return this.request({
+      url: 'book/add/short_comment',
+      method: 'POST',
+      data: {
+        book_id: bid,
+        content: comment
+      }
     })
   }
 }

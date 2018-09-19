@@ -2,12 +2,14 @@
  * @Author: Lac
  * @Date: 2018-09-02 15:12:07
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 16:27:20
+ * @Last Modified time: 2018-09-20 00:05:52
  */
 
 import { BookModel } from '../../models/book'
+import { LikeModel } from '../../models/like';
 
 const bookModel = new BookModel()
+const likeModel = new LikeModel()
 
 Page({
 
@@ -18,7 +20,8 @@ Page({
     comments: [],
     book: null,
     likeStatus: false,
-    likeCount: 0
+    likeCount: 0,
+    posting: false
   },
 
   /**
@@ -51,6 +54,55 @@ Page({
         likeCount: res.fav_nums
       })
     })
+  },
+
+  handleLike: function (ev) {
+    const like_or_cancel = ev.detail.behavior
+    likeModel.like(like_or_cancel, this.data.book.id, 400)
+  },
+
+  handleOpenRealComment: function (e) {
+    this.setData({
+      posting: true
+    })
+  },
+
+  handleCancel: function (e) {
+    this.setData({
+      posting: false
+    })
+  },
+
+  handlePost: function(ev) {
+    const comment = ev.detail.text || ev.detail.value
+
+    if (!!comment) return
+
+    if (comment.length > 12) {
+      wx.showToast({
+        title: '最多12字',
+        icon: 'none'
+      })
+      return
+    }
+    bookModel.postComment(this.data.book.id, comment)
+      .then(res => {
+        console.log(res)
+        wx.showToast({
+          title: 'success',
+          icon: 'none'
+        })
+
+        this.data.comments.unshift({
+          content: comment,
+          nums: 1
+        })
+
+        this.setData({
+          comments: this.data.comments,
+          posting: false
+        })
+      })
   },
 
   /**

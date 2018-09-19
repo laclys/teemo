@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-02 16:20:00
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-02 22:41:56
+ * @Last Modified time: 2018-09-19 23:19:00
  */
 // components/tag/index.js
 Component({
@@ -30,6 +30,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleTap: function() {
+      this.triggerEvent('tapping',{
+        text: this.properties.text
+      })
+    }
   }
 })
