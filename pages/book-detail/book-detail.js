@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-02 15:12:07
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-12 23:54:34
+ * @Last Modified time: 2018-09-19 23:51:45
  */
 
 import { BookModel } from '../../models/book'
@@ -71,6 +71,34 @@ Page({
     this.setData({
       posting: false
     })
+  },
+
+  handlePost: function(ev) {
+
+    const comment = ev.detail.text
+    if (comment.length > 12) {
+      wx.showToast({
+        title: '最多12字',
+        icon: 'none'
+      })
+      return
+    }
+    bookModel.postComment(this.data.book.id, comment)
+      .then(res => {
+        console.log(res)
+        wx.showToast({
+          title: 'success',
+          icon: 'none'
+        })
+
+        this.data.comments.unshift({
+          comment,
+          nums: 1
+        })
+        this.setData({
+          comments: this.data.comments
+        })
+      })
   },
 
   /**
