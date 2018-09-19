@@ -2,7 +2,7 @@
  * @Author: Lac 
  * @Date: 2018-09-02 15:12:15 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-12 23:57:31
+ * @Last Modified time: 2018-09-20 00:09:50
  */
 .container {
   width: 100%;
@@ -201,4 +201,8 @@
   height: 56rpx;
   background: #f5f5f5;
   border-radius: 15px;
+}
+
+.shadow {
+  color: #999;
 }

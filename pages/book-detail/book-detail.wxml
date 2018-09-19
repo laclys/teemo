@@ -7,6 +7,7 @@
   </view>
   <view class='sub-container'>
     <text class='headline'>Tag</text>
+    <text class='shadow' wx:if='{{ comments == false }}'  >No Comment</text>
     <view class='comment-container'>
       <block wx:for='{{ helper.limit(comments, 15) }}' wx:key='content'>
         <tag-comp tag-class='{{ index === 0 ? "ex-tag1" : " " || index === 1 ? "ex-tag2": " "  }}' text='{{ item.content }}'>
@@ -59,7 +60,8 @@
 
 <view class='post-real-container' wx:if='{{ posting }}' >
   <view class='post-header' >
-    <text>click +1</text>
+    <text wx:if='{{ comments===true }}' >click +1</text>
+    <text wx:else >No comment</text>
     <text
       class='cancel'
       bind:tap='handleCancel'
