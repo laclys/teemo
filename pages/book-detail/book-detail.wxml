@@ -79,6 +79,7 @@
   <input
     class='post'
     placeholder='Up to 12 words'
+    bindconfirm='handlePost'
   />
 </view>
 

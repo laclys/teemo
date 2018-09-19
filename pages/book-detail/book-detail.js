@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-02 15:12:07
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-19 23:51:45
+ * @Last Modified time: 2018-09-20 00:04:17
  */
 
 import { BookModel } from '../../models/book'
@@ -74,8 +74,7 @@ Page({
   },
 
   handlePost: function(ev) {
-
-    const comment = ev.detail.text
+    const comment = ev.detail.text || ev.detail.value
     if (comment.length > 12) {
       wx.showToast({
         title: '最多12字',
@@ -92,11 +91,13 @@ Page({
         })
 
         this.data.comments.unshift({
-          comment,
+          content: comment,
           nums: 1
         })
+
         this.setData({
-          comments: this.data.comments
+          comments: this.data.comments,
+          posting: false
         })
       })
   },
