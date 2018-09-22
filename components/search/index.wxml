@@ -7,7 +7,7 @@
     </view>
     <view class='cancel' bind:tap="onCancel">取消</view>
   </view>
-  <view wx:if="{{!finished}}">
+  <view wx:if="{{ !finished }}">
     <view class="history">
       <view class="title">
         <view class="chunk"></view>
@@ -36,5 +36,10 @@
           />
         </view>
     </view>
+  </view>
+  <view class="books-container" wx:if="{{ finished }}">
+    <block wx:for="{{ dataArray }}" wx:key="{{ item.id }}">
+      <book-comp show-like="{{ false }}" book="{{ item }}" class="book" />
+    </block>
   </view>
 </view>
