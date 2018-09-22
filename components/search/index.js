@@ -2,8 +2,11 @@
  * @Author: Lac 
  * @Date: 2018-09-20 23:48:11 
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-21 00:03:17
+ * @Last Modified time: 2018-09-22 22:59:25
  */
+import { KeyWordModel } from '../../models/keyword'
+
+const keywordModel = new KeyWordModel()
 
 Component({
   /**
@@ -17,7 +20,20 @@ Component({
    * 组件的初始数据
    */
   data: {
+    historyKeys: [],
+    hotKeys: []
+  },
 
+  attached() {
+    this.setData({
+      historyKeys: keywordModel.getHistory()
+    })
+    
+    keywordModel.getHot().then(res => {
+      this.setData({
+        hotKeys: res.hot
+      })
+    })
   },
 
   /**
@@ -26,6 +42,11 @@ Component({
   methods: {
     onCancel: function() {
       this.triggerEvent('cancel', {})
+    },
+
+    onConfirm: function(ev) {
+      const word = ev.detail.value
+      keywordModel.addToHistory(word)
     }
   }
 })
