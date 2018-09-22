@@ -2,9 +2,10 @@
  * @Author: Lac
  * @Date: 2018-08-12 22:24:44
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-21 00:03:52
+ * @Last Modified time: 2018-09-23 00:22:48
  */
 import { BookModel } from '../../models/book.js'
+import { random } from '../../util/common'
 
 let bookModel = new BookModel()
 
@@ -15,7 +16,8 @@ Page({
    */
   data: {
     books: [],
-    searching: false
+    searching: false,
+    more: ''
   },
 
   /**
@@ -85,9 +87,15 @@ Page({
     })
   },
 
-  handleCancel: function() {
+  handleCancel: function () {
     this.setData({
       searching: false
+    })
+  },
+
+  onReachBottom: function () {
+    this.setData({
+      more: random(16)
     })
   }
 })

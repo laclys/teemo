@@ -6,7 +6,7 @@
  */
 
 import { BookModel } from '../../models/book'
-import { LikeModel } from '../../models/like';
+import { LikeModel } from '../../models/like'
 
 const bookModel = new BookModel()
 const likeModel = new LikeModel()
@@ -63,10 +63,10 @@ Page({
     })
   },
 
-  handlePost: function(ev) {
+  handlePost: function (ev) {
     const comment = ev.detail.text || ev.detail.value
 
-    if (!!comment) return
+    if (comment) return
 
     if (comment.length > 12) {
       wx.showToast({
