@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-08-12 22:24:44
  * @Last Modified by: Lac
- * @Last Modified time: 2018-08-20 23:47:03
+ * @Last Modified time: 2018-09-21 00:03:52
  */
 import { BookModel } from '../../models/book.js'
 
@@ -14,7 +14,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    searching: false
   },
 
   /**
@@ -76,5 +77,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  handleSearch: function () {
+    this.setData({
+      searching: true
+    })
+  },
+
+  handleCancel: function() {
+    this.setData({
+      searching: false
+    })
   }
 })

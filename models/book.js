@@ -2,8 +2,9 @@
  * @Author: Lac
  * @Date: 2018-08-12 22:15:50
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-19 23:51:24
+ * @Last Modified time: 2018-09-22 23:17:16
  */
+
 import { HTTP } from '../util/http-p.js'
 
 const BOOK_HOT_LIST = '/book/hot_list'
@@ -11,6 +12,16 @@ const BOOK_HOT_LIST = '/book/hot_list'
 export class BookModel extends HTTP {
   getHotList () {
     return this.request({ url: BOOK_HOT_LIST })
+  }
+
+  search(start, q) {
+    return this.request({
+      url: 'book/search?summary=1',
+      data: {
+        q: q,
+        start: start
+      }
+    })
   }
 
   getMyBookCount () {
