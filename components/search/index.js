@@ -2,10 +2,12 @@
  * @Author: Lac
  * @Date: 2018-09-20 23:48:11
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-23 00:16:36
+ * @Last Modified time: 2018-09-24 01:01:15
  */
 import { KeyWordModel } from '../../models/keyword'
 import { BookModel } from '../../models/book'
+
+import { paginationBev } from '../behaviors/pagination'
 
 const keywordModel = new KeyWordModel()
 const bookModel = new BookModel()
@@ -14,6 +16,7 @@ Component({
   /**
    * 组件的属性列表
    */
+  behaviors: [paginationBev],
   properties: {
     more: {
       type: String,
@@ -27,9 +30,9 @@ Component({
   data: {
     historyKeys: [],
     hotKeys: [],
-    dataArray: [],
     finished: false,
-    q: ''
+    q: '',
+    loading: false
   },
 
   attached () {
@@ -56,10 +59,12 @@ Component({
       this.setData({
         finished: true
       })
+      this.init()
       const word = ev.detail.value || ev.detail.text
       bookModel.search(0, word).then(res => {
+        this.setMoreData(res.books)
+        this.setTotal(res.total)
         this.setData({
-          dataArray: res.books,
           q: word
         })
         keywordModel.addToHistory(word)
@@ -74,7 +79,18 @@ Component({
     },
 
     _load_more: function () {
-      console.log(123)
+      if (!this.data.q || this.data.loading) return
+      if (this.hasMore()) {
+        this.setData({
+          loading: true
+        })
+        bookModel.search(this.getCurrentStart(), this.data.q).then(res => {
+          this.setMoreData(res.books)
+          this.setData({
+            loading: false
+          })
+        })
+      }
     }
   }
 })
