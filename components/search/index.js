@@ -84,28 +84,28 @@ Component({
       }
     },
 
-    _showRes: function() {
+    _showRes: function () {
       this.setData({
         finished: true
       })
     },
 
-    _closeRes: function() {
+    _closeRes: function () {
       this.setData({
         finished: false,
         q: ''
       })
     },
 
-    _isLocked: function() {
+    _isLocked: function () {
       return this.data.loading
     },
 
-    _locked: function() {
+    _locked: function () {
       this.data.loading = true
     },
 
-    _unlocked: function() {
+    _unlocked: function () {
       this.data.loading = false
     }
   }
