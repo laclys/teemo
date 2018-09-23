@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-20 23:48:11
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-24 01:01:15
+ * @Last Modified time: 2018-09-24 01:11:11
  */
 import { KeyWordModel } from '../../models/keyword'
 import { BookModel } from '../../models/book'
@@ -20,7 +20,7 @@ Component({
   properties: {
     more: {
       type: String,
-      observer: '_load_more'
+      observer: 'loadMore'
     }
   },
 
@@ -56,9 +56,7 @@ Component({
     },
 
     onConfirm: function (ev) {
-      this.setData({
-        finished: true
-      })
+      this._showRes()
       this.init()
       const word = ev.detail.value || ev.detail.text
       bookModel.search(0, word).then(res => {
@@ -72,25 +70,43 @@ Component({
     },
 
     onDelete: function () {
+      this._closeRes()
+    },
+
+    loadMore: function () {
+      if (!this.data.q || this._isLocked()) return
+      if (this.hasMore()) {
+        this._locked()
+        bookModel.search(this.getCurrentStart(), this.data.q).then(res => {
+          this.setMoreData(res.books)
+          this._unlocked()
+        })
+      }
+    },
+
+    _showRes: function() {
+      this.setData({
+        finished: true
+      })
+    },
+
+    _closeRes: function() {
       this.setData({
         finished: false,
         q: ''
       })
     },
 
-    _load_more: function () {
-      if (!this.data.q || this.data.loading) return
-      if (this.hasMore()) {
-        this.setData({
-          loading: true
-        })
-        bookModel.search(this.getCurrentStart(), this.data.q).then(res => {
-          this.setMoreData(res.books)
-          this.setData({
-            loading: false
-          })
-        })
-      }
+    _isLocked: function() {
+      return this.data.loading
+    },
+
+    _locked: function() {
+      this.data.loading = true
+    },
+
+    _unlocked: function() {
+      this.data.loading = false
     }
   }
 })
