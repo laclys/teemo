@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-20 23:48:11
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-24 01:11:11
+ * @Last Modified time: 2018-09-24 01:13:47
  */
 import { KeyWordModel } from '../../models/keyword'
 import { BookModel } from '../../models/book'
@@ -79,6 +79,8 @@ Component({
         this._locked()
         bookModel.search(this.getCurrentStart(), this.data.q).then(res => {
           this.setMoreData(res.books)
+          this._unlocked()
+        },() => {
           this._unlocked()
         })
       }
