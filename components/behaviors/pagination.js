@@ -2,13 +2,14 @@
  * @Author: Lac
  * @Date: 2018-09-24 00:41:49
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-24 14:14:37
+ * @Last Modified time: 2018-09-24 14:23:50
  */
 
 export const paginationBev = Behavior({
   data: {
     dataArray: [],
-    total: null
+    total: null,
+    noneResult: false
   },
 
   methods: {
@@ -25,6 +26,11 @@ export const paginationBev = Behavior({
 
     setTotal (total) {
       this.data.total = total
+      if (total === 0) {
+        this.setData({
+          noneResult: true
+        })
+      }
     },
 
     hasMore () {
@@ -34,7 +40,8 @@ export const paginationBev = Behavior({
     init () {
       this.data.total = null
       this.setData({
-        dataArray: []
+        dataArray: [],
+        noneResult: false
       })
     }
   }

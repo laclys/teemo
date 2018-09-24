@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-20 23:48:11
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-24 14:19:40
+ * @Last Modified time: 2018-09-24 14:25:49
  */
 import { KeyWordModel } from '../../models/keyword'
 import { BookModel } from '../../models/book'
@@ -53,13 +53,14 @@ Component({
    */
   methods: {
     onCancel: function () {
+      this.init()
       this.triggerEvent('cancel', {})
     },
 
     onConfirm: function (ev) {
       this._showRes()
       this._showLoadingCenter()
-      this.init()
+      // this.init()
       const word = ev.detail.value || ev.detail.text
       bookModel.search(0, word).then(res => {
         this.setMoreData(res.books)
@@ -73,6 +74,7 @@ Component({
     },
 
     onDelete: function () {
+      this.init()
       this._closeRes()
     },
 
