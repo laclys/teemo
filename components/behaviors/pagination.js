@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-24 00:41:49
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-24 00:57:00
+ * @Last Modified time: 2018-09-24 14:14:37
  */
 
 export const paginationBev = Behavior({
@@ -32,8 +32,10 @@ export const paginationBev = Behavior({
     },
 
     init () {
-      this.data.dataArray = [],
       this.data.total = null
+      this.setData({
+        dataArray: []
+      })
     }
   }
 })

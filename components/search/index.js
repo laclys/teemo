@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-20 23:48:11
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-24 01:13:47
+ * @Last Modified time: 2018-09-24 14:19:40
  */
 import { KeyWordModel } from '../../models/keyword'
 import { BookModel } from '../../models/book'
@@ -32,7 +32,8 @@ Component({
     hotKeys: [],
     finished: false,
     q: '',
-    loading: false
+    loading: false,
+    loadingCenter: false
   },
 
   attached () {
@@ -57,6 +58,7 @@ Component({
 
     onConfirm: function (ev) {
       this._showRes()
+      this._showLoadingCenter()
       this.init()
       const word = ev.detail.value || ev.detail.text
       bookModel.search(0, word).then(res => {
@@ -66,6 +68,7 @@ Component({
           q: word
         })
         keywordModel.addToHistory(word)
+        this._hideLoadingCenter()
       })
     },
 
@@ -104,11 +107,26 @@ Component({
     },
 
     _locked: function () {
-      this.data.loading = true
+      this.setData({
+        loading: true
+      })
     },
 
     _unlocked: function () {
-      this.data.loading = false
+      this.setData({
+        loading: false
+      })
+    },
+
+    _showLoadingCenter: function () {
+      this.setData({
+        loadingCenter: true
+      })
+    },
+    _hideLoadingCenter: function () {
+      this.setData({
+        loadingCenter: false
+      })
     }
   }
 })

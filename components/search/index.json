@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "tag-comp":"../tag/index",
-    "book-comp":"../book/index"
+    "book-comp":"../book/index",
+    "loading-comp":"../loading/index"
   }
 }

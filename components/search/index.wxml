@@ -42,4 +42,7 @@
       <book-comp show-like="{{ false }}" book="{{ item }}" class="book" />
     </block>
   </view>
+
+  <loading-comp class="loading-center" wx:if="{{ loadingCenter }}" />
+  <loading-comp class="loading" wx:if="{{ loading }}" />
 </view>
