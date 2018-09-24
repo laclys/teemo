@@ -2,7 +2,7 @@
  * @Author: Lac
  * @Date: 2018-09-20 23:48:11
  * @Last Modified by: Lac
- * @Last Modified time: 2018-09-24 14:25:49
+ * @Last Modified time: 2018-09-24 14:43:52
  */
 import { KeyWordModel } from '../../models/keyword'
 import { BookModel } from '../../models/book'
@@ -32,7 +32,6 @@ Component({
     hotKeys: [],
     finished: false,
     q: '',
-    loading: false,
     loadingCenter: false
   },
 
@@ -79,14 +78,14 @@ Component({
     },
 
     loadMore: function () {
-      if (!this.data.q || this._isLocked()) return
+      if (!this.data.q || this.isLocked()) return
       if (this.hasMore()) {
-        this._locked()
+        this.locked()
         bookModel.search(this.getCurrentStart(), this.data.q).then(res => {
           this.setMoreData(res.books)
-          this._unlocked()
+          this.unlocked()
         },() => {
-          this._unlocked()
+          this.unlocked()
         })
       }
     },
@@ -101,22 +100,6 @@ Component({
       this.setData({
         finished: false,
         q: ''
-      })
-    },
-
-    _isLocked: function () {
-      return this.data.loading
-    },
-
-    _locked: function () {
-      this.setData({
-        loading: true
-      })
-    },
-
-    _unlocked: function () {
-      this.setData({
-        loading: false
       })
     },
 
