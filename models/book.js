@@ -14,7 +14,7 @@ export class BookModel extends HTTP {
     return this.request({ url: BOOK_HOT_LIST })
   }
 
-  search(start, q) {
+  search (start, q) {
     return this.request({
       url: 'book/search?summary=1',
       data: {

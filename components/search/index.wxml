@@ -42,4 +42,8 @@
       <book-comp show-like="{{ false }}" book="{{ item }}" class="book" />
     </block>
   </view>
+
+  <loading-comp class="loading-center" wx:if="{{ loadingCenter }}" />
+  <loading-comp class="loading" wx:if="{{ loading }}" />
+  <text wx:if="{{ noneResult }}" class="empty-tip" >No Data！</text>
 </view>
