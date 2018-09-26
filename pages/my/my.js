@@ -5,14 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    authorized: false,
+    userInfo: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.userAuthorized()
   },
 
   /**
@@ -62,5 +63,34 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  userAuthorized: function() {
+    wx.getSetting({
+      success: data => {
+        if (data.authSetting['scope.userInfo']) {
+          // 用户授权了
+          wx.getUserInfo({
+            success: data => {
+              console.log(data)
+              this.setData({
+                authorized: true,
+                userInfo: data.userInfo
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+
+  handleGetUserInfo: function(ev) {
+    const userInfo =ev.detail.userInfo
+    if (userInfo) {
+      this.setData({
+        userInfo,
+        authorized: true
+      })
+    }
   }
 })

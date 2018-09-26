@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "image-button-comp": "/components/image-button/index"
+  }
+}
